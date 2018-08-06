@@ -174,6 +174,7 @@ class ASTViewer::Viewer
     scan_for("body")
     scan_if_has("block_arg")
     scan_if_has("return_type")
+    scan_if_has("splat_index")
     scan_for("visibility")
     scan_if_has?("macro_def")
     scan_if_has?("abstract")
@@ -185,6 +186,7 @@ class ASTViewer::Viewer
     scan_if_has("double_splat")
     scan_for("body")
     scan_if_has("block_arg")
+    scan_if_has("splat_index")
   end
 
   {% for node_type in %w(Not PointerOf SizeOf InstanceSizeOf Out MacroVerbatim) %}
@@ -254,6 +256,7 @@ class ASTViewer::Viewer
     scan_for("body")
     scan_if_has("superclass")
     scan_if_has("type_vars")
+    scan_if_has("splat_index")
     scan_if_has?("abstract")
     scan_if_has?("struct")
     scan_for("visibility")
@@ -264,6 +267,7 @@ class ASTViewer::Viewer
     scan_for("name")
     scan_for("body")
     scan_if_has("type_vars")
+    scan_if_has("splat_index")
     scan_for("visibility")
   end
 
