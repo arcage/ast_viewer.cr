@@ -31,25 +31,39 @@ class ASTViewer::Viewer
     end
   end
 
-  {% for node_type in %w(ArrayLiteral TupleLiteral) %}
+  private def scan(io : IO, node : Crystal::ArrayLiteral, offset, kind = nil)
+    output_node
+    node.elements.each do |elm|
+      scan_for("element", "elm")
+    end
+    scan_if_has("of")
+    scan_if_has("name")
+  end
 
-  private def scan(io : IO, node : Crystal::{{node_type.id}}, offset, kind = nil)
+  private def scan(io : IO, node : Crystal::TupleLiteral, offset, kind = nil)
     output_node
     node.elements.each do |elm|
       scan_for("element", "elm")
     end
   end
 
-  {% end %}
+  private def scan(io : IO, node : Crystal::HashLiteral, offset, kind = nil)
+    output_node
+    node.entries.each do |ent|
+      scan_for("entry", "ent")
+    end
+    scan_if_has("of")
+    scan_if_has("name")
+  end
 
-  {% for node_type in %w(HashLiteral NamedTupleLiteral) %}
-
-  private def scan(io : IO, node : Crystal::{{node_type.id}}, offset, kind = nil)
+  private def scan(io : IO, node : Crystal::NamedTupleLiteral, offset, kind = nil)
     output_node
     node.entries.each do |ent|
       scan_for("entry", "ent")
     end
   end
+
+  {% for node_type in %w(HashLiteral NamedTupleLiteral) %}
 
   private def scan(io : IO, node : Crystal::{{node_type.id}}::Entry, offset, kind = nil)
     output_node
