@@ -203,7 +203,7 @@ class ASTViewer::Viewer
     scan_if_has("splat_index")
   end
 
-  {% for node_type in %w(Not PointerOf SizeOf InstanceSizeOf Out MacroVerbatim) %}
+  {% for node_type in %w(Not PointerOf SizeOf InstanceSizeOf Out MacroVerbatim Splat DoubleSplat) %}
 
   private def scan(io : IO, node : Crystal::{{node_type.id}}, offset, kind = nil)
     output_node
@@ -485,7 +485,7 @@ class ASTViewer::Viewer
     scan_for("exp")
   end
 
-  # Nop, ImplicitObj, Self, Underscore, Splat, DoubleSplat
+  # Nop, ImplicitObj, Self, Underscore
   private def scan(io : IO, node : Crystal::ASTNode, offset, kind = nil)
     output_node
   end
