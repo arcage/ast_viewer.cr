@@ -11,7 +11,7 @@ Add this to your application's `shard.yml`:
 ```yaml
 dependencies:
   ast_viewer:
-    github: arcage/ast_viewer
+    github: arcage/ast_viewer.cr
 ```
 
 ## Usage
