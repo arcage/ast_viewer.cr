@@ -2,7 +2,7 @@
 
 Visualize the AST structure from ASTNode object, source file, or source code string.
 
-The target compiler version is **0.25.1**.
+The target compiler version is **0.27.0**.
 
 ## Installation
 
