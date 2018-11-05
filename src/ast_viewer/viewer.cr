@@ -471,7 +471,7 @@ class ASTViewer::Viewer
   private def scan(io : IO, node : Crystal::Asm, offset, kind = nil)
     output_node
     scan_for("text")
-    scan_if_has("output")
+    scan_if_has("outputs")
     scan_if_has("inputs")
     scan_if_has("clobbers")
     scan_if_has?("volatile")
