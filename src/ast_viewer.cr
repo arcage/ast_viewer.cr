@@ -3,6 +3,8 @@ require "colorize"
 require "./ast_viewer/*"
 
 module ASTViewer
+  VERSION = "0.1.4"
+
   def self.from_file(filename : String)
     source = File.read(filename)
     from_source(source)
